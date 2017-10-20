@@ -25,7 +25,7 @@ class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startClicker"{
-           ibScoreLabel.text = "0"
+           //ibScoreLabel.text = "0"
         }
     }
 }

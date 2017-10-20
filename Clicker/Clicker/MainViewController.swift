@@ -13,29 +13,34 @@ class MainViewController: UIViewController {
     
     var count: Int = 0
     var time: Int = 30
-    var timer = Timer()
+    var timer: Timer!
+    var timerTap: Timer!
     
     @IBOutlet weak var ibBlueButton: UIButton!
     @IBOutlet weak var ibRedButton: UIButton!
     @IBOutlet weak var ibGreenButton: UIButton!
     @IBOutlet weak var ibScoreLabelInMainView: UILabel!
+    @IBOutlet weak var ibLabelTime: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showTap()
         ibScoreLabelInMainView.text = "\(count)"
-        
+        ibLabelTime.text = "Time of: \(time)"
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeTic), userInfo: nil, repeats: true)
+        timerTap = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(showTap), userInfo: nil, repeats: true)
     }
     
-    func timeTic(){
+    @objc func timeTic(){
         // var time = 30
         time = time - 1
+        ibLabelTime.text = "Time of: \(time)"
         if time <= 0 {
-            performSegue(withIdentifier: "endGame", sender: self)
+            performSegue(withIdentifier: "endGameOfTime", sender: self)
         }
     }
     
-    func showTap(){
+    @objc func showTap(){
         let rendom = arc4random_uniform(3)
         switch rendom {
         case 0:
@@ -62,11 +67,11 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "endGame"{
+       // if segue.identifier == "endGameOfTime"{
             if let destVC = segue.destination as? EndViewController{
                 destVC.endCount = count
             }
-        }
+        //}
     }
     //override func performSegue(withIdentifier identifier: String, sender: Any?) { }
     
