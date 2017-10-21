@@ -142,7 +142,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="AWd-Jy-AwJ" kind="show" id="Z3A-UM-0kn"/>
+                                    <segue destination="AWd-Jy-AwJ" kind="show" identifier="pressButtonFinish" id="Z3A-UM-0kn"/>
                                 </connections>
                             </button>
                         </subviews>

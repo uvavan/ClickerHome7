@@ -67,12 +67,11 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // if segue.identifier == "endGameOfTime"{
+        if segue.identifier == "endGameOfTime" ||
+            segue.identifier == "pressButtonFinish"{
             if let destVC = segue.destination as? EndViewController{
                 destVC.endCount = count
             }
-        //}
+        }
     }
-    //override func performSegue(withIdentifier identifier: String, sender: Any?) { }
-    
 }
